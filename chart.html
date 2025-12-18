@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Most Popular Super Bowl Snacks in Each State — RotoGrinders (Chart)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="RotoGrinders' Super Bowl Snack Index 2025 chart: one headline Super Bowl snack per state, based on search trends. Rank measures snack-search intensity (#1 = highest)."
+  />
+
+  <style>
+    :root{
+      --page:#F6F5F1; --ink:#171717; --muted:#6f6f6f;
+      --bd:rgba(0,0,0,.10); --bdsoft:rgba(0,0,0,.06);
+      --radius:14px; --shadow:0 14px 34px rgba(0,0,0,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:var(--page); color:var(--ink);
+      font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      display:flex; align-items:flex-start; justify-content:center;
+      padding:18px;
+    }
+    .wrap{width:min(1140px,100%)}
+    header{text-align:center; margin:0 0 12px}
+    h1{
+      margin:0; font-size:clamp(1.35rem, 1rem + 2vw, 2rem);
+      letter-spacing:-.01em; font-weight:800;
+    }
+
+    .frame{
+      background:linear-gradient(#ffffff,#fdfbf6);
+      border:1px solid var(--bdsoft);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .explain{
+      background:#fffefb;
+      padding:10px 14px;
+      color:#2f2f2f;
+      font-size:.92rem;
+      line-height:1.35;
+      text-align:center;
+      border-bottom:1px solid var(--bdsoft);
+    }
+    .explain strong{font-weight:800; color:#151515}
+
+    .table-wrap{
+      background:#fff;
+      padding:12px;
+    }
+    .table-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px; margin:0 0 10px;
+    }
+    .table-title{
+      margin:0;
+      font-weight:800;
+      letter-spacing:-.01em;
+      font-size:1.05rem;
+    }
+    .table-sub{
+      margin:0;
+      color:var(--muted);
+      font-size:.88rem;
+      white-space:nowrap;
+    }
+
+    .scroll{
+      border:1px solid var(--bdsoft);
+      border-radius:12px;
+      background:#fff;
+      overflow:visible;
+      max-height:none;
+    }
+    @media (max-width:720px){
+      .scroll{max-height:560px; overflow:auto;}
+    }
+
+    table{width:100%; border-collapse:separate; border-spacing:0; font-size:.95rem}
+    thead th{
+      background:#fff7ee;
+      border-bottom:1px solid var(--bdsoft);
+      text-align:left;
+      padding:10px 10px;
+      color:#2a2a2a;
+      font-weight:800;
+      white-space:nowrap;
+      position:sticky; top:0; z-index:2;
+    }
+    tbody td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      vertical-align:middle;
+    }
+    tbody tr:hover td{background:#fffdfa}
+
+    .rank{font-variant-numeric:tabular-nums; font-weight:900}
+    .state{font-weight:800}
+    .snack{font-weight:700}
+    .thumb{
+      width:54px; height:40px;
+      border-radius:10px; object-fit:cover;
+      border:1px solid rgba(0,0,0,.08);
+      background:#f3f3f3;
+      display:block;
+    }
+
+    /* logo sits under chart for clean export */
+    .brandbar{
+      border-top:1px solid var(--bdsoft);
+      background:#fffefd;
+      padding:10px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .logo{
+      height:46px; width:auto; display:block;
+      filter:drop-shadow(0 2px 3px rgba(0,0,0,.10));
+    }
+
+    .footer{
+      border-top:1px solid var(--bdsoft);
+      background:#fffefd;
+      padding:12px 12px 14px;
+      display:flex; flex-direction:column; align-items:center;
+      gap:10px; text-align:center;
+    }
+    .embed{width:100%; max-width:820px}
+    .embed h3{margin:0 0 6px; font-size:.95rem; font-weight:800; color:#2a2a2a}
+    .embed-toggle{
+      appearance:none; border:1px solid var(--bd);
+      background:#fff; border-radius:8px;
+      padding:7px 11px; cursor:pointer;
+      font-weight:800; font-size:.86rem;
+    }
+    .embed-toggle:hover{background:#fffdfa}
+    .embed-panel[hidden]{display:none}
+    .embed-panel{margin-top:8px; text-align:left}
+    .embed-block{margin-top:10px}
+    .embed-block label{
+      display:block; font-weight:800; margin:6px 0 4px;
+      font-size:.85rem; color:#3a3a3a;
+    }
+    .embed-block textarea{
+      width:100%; height:110px;
+      border:1px solid var(--bd); border-radius:10px;
+      padding:8px; background:#fff; color:inherit;
+      font:12px/1.4 ui-monospace,Consolas,Monaco,monospace;
+      resize:none;
+    }
+    .fineprint{color:var(--muted); font-size:.88rem; margin:0}
+
+    @media print{
+      body{background:#fff; padding:0}
+      .frame{box-shadow:none}
+      .scroll{overflow:visible; max-height:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <h1>The Most Popular Super Bowl Snacks in Each State</h1>
+    </header>
+
+    <div class="frame">
+      <div class="explain">
+        <strong>Chart:</strong> one headline Super Bowl snack per state, based on search trends.
+        <strong>Rank</strong> measures snack-search intensity (<strong>#1</strong> = highest).
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-head">
+          <p class="table-title">All 50 States — Headline Snack + Rank</p>
+          <p class="table-sub">RotoGrinders Snack Index 2025</p>
+        </div>
+
+        <div class="scroll">
+          <table aria-label="State snack ranking table">
+            <thead>
+              <tr>
+                <th style="width:78px;">Rank</th>
+                <th style="width:220px;">State</th>
+                <th>Headline Super Bowl Snack</th>
+                <th style="width:110px;">Photo</th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="brandbar" aria-label="RotoGrinders branding">
+        <img class="logo" src="https://i.postimg.cc/DzcDPmsn/download-1.png" alt="RotoGrinders">
+      </div>
+
+      <div class="footer">
+        <div class="embed">
+          <h3>Share / Embed</h3>
+          <button type="button" id="embedToggle" class="embed-toggle" aria-controls="embedPanel" aria-expanded="false">
+            Get Embed Code
+          </button>
+
+          <div id="embedPanel" class="embed-panel" hidden>
+            <p class="fineprint">Copy and paste the embed you need below.</p>
+
+            <div class="embed-block">
+              <label for="embed-iframe">Interactive (iframe)</label>
+              <textarea id="embed-iframe" readonly onclick="this.select()"></textarea>
+            </div>
+
+            <div class="embed-block">
+              <label for="embed-static">Static (no JS)</label>
+              <textarea id="embed-static" readonly onclick="this.select()"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <p class="fineprint">RotoGrinders Super Bowl Snack Index 2025</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+const CANONICAL_URL = window.location.href;
+
+/* --------------------------- DATA: State → snack + image + rank --------------------------- */
+/* Note: If any Hearst URL with resize=1400:* breaks in your host, change * to %2A */
+const STATE_DATA = [
+  { state:"Mississippi", rank:1, snack:"Spinach dip", img:"https://www.browneyedbaker.com/wp-content/uploads/2021/04/spinach-dip-27-1200.jpg" },
+  { state:"Alabama", rank:2, snack:"Rotel dip", img:"https://hips.hearstapps.com/hmg-prod/images/rotel-dip-3-1674070292.jpg?crop=0.821xw:0.657xh;0.112xw,0.180xh&resize=1400:*" },
+  { state:"New Mexico", rank:3, snack:"Queso dip", img:"https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1456,h_1092/k%2FPhoto%2FRecipes%2F2020-02-Easy-Restaurant-Style-Queso-Dip%2FEasy-Restaurant-Style-Queso-Dip_079" },
+  { state:"Wyoming", rank:4, snack:"Chips and dip", img:"https://www.midwestlifeandstyle.com/wp-content/uploads/2022/01/Ultimate-Chips-and-Dip-Platter-32-Midwest-Life-and-Style-Blog.jpg" },
+  { state:"Maine", rank:5, snack:"Party meatballs", img:"https://www.myforkinglife.com/wp-content/uploads/2019/12/party-meatballs-7.jpg" },
+  { state:"Vermont", rank:6, snack:"Cheese / charcuterie board", img:"https://www.tastefrance.com/sites/default/files/styles/banner_lg_x2/public/2023-09/plateau%20de%20fromage%20et%20charcuterie-140.jpg.webp?itok=XDmdIc_8" },
+  { state:"New Hampshire", rank:7, snack:"Spinach artichoke dip", img:"https://www.onionringsandthings.com/wp-content/uploads/2012/10/spinach-artichoke-dip-3.jpg" },
+  { state:"California", rank:8, snack:"Guacamole", img:"https://www.foodandwine.com/thmb/TL_ZwxxejeLGUdY7nfzaInwwTFU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/guacamole-for-a-crowd-FT-RECIPE0125-624c884187d44062ae4fb86794d0769c.jpeg" },
+  { state:"Montana", rank:9, snack:"Ribs", img:"https://www.marthastewart.com/thmb/co3vPw-ohzJpBAuJssCCWAJ-1aE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/MS-318389-oven-roasted-ribs-with-barbecue-sauce-hero-3x2-26714-f4b156a93dd44990b38fa7c6e6ef8c78.jpg" },
+  { state:"Kentucky", rank:10, snack:"Oreo balls", img:"https://bakingamoment.com/wp-content/uploads/2024/07/oreo-balls-recipe-3.jpg" },
+  { state:"Utah", rank:11, snack:"Funeral potatoes", img:"https://www.smalltownwoman.com/wp-content/uploads/2023/08/Cheesy-Hashbrown-Casserole-4x5-Preset-.webp" },
+  { state:"Texas", rank:12, snack:"Chili", img:"https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_913/k%2FPhoto%2FRecipes%2F2023-11-chili%2Fchili-2" },
+  { state:"South Dakota", rank:13, snack:"Seven layer dip", img:"https://hips.hearstapps.com/hmg-prod/images/seven-layer-dip-lead-6595ae3e10864.jpg?crop=1xw:0.9994523548740416xh;center,top&resize=1400:*" },
+  { state:"New Jersey", rank:14, snack:"Mozzarella sticks", img:"https://images.themodernproper.com/production/posts/2021/Homemade-Mozzarella-Sticks-9.jpeg?w=800&q=82&auto=format&fit=crop&dm=1638935116&s=5bb4d3bca782e98bb068c4a7d10d4c9d" },
+  { state:"Alaska", rank:15, snack:"Smoked salmon dip", img:"https://www.recipetineats.com/tachyon/2017/12/Smoked-Salmon-Dip-5a.jpg?resize=964%2C1350&zoom=1" },
+  { state:"Arizona", rank:16, snack:"Sonoran hot dog", img:"https://www.midwestliving.com/thmb/ntB7IBIsw4vcAU7Njkgq_w5E49U=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2):format(webp)/KH_011924_MDWL0076-525cbfe2b7364ec487682b55a3935816.jpg" },
+  { state:"Florida", rank:17, snack:"Chicken wings", img:"https://dishnthekitchen.com/wp-content/uploads/2024/09/coverHotHoneyWings.jpg" },
+  { state:"Georgia", rank:18, snack:"Fried green tomatoes", img:"https://www.southernliving.com/thmb/ZkWjEPLIxVceFO0v3kxDa0oFNR4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Fried_Green_Tomatoes_001-2fc4075dc0e44a308c912a695173285c.jpg" },
+  { state:"Iowa", rank:19, snack:"Sliders", img:"https://www.thecookierookie.com/wp-content/uploads/2023/09/cheeseburger-sliders-featured.jpg" },
+  { state:"Kansas", rank:20, snack:"Potato skins", img:"https://sweetandsavorymeals.com/wp-content/uploads/2021/11/air-fried-potato-skins.jpg.webp" },
+  { state:"Minnesota", rank:21, snack:"Puppy chow / muddy buddies", img:"https://ourzestylife.com/wp-content/uploads/2022/01/Puppy-Chow-OurZestyLife-13.jpg" },
+  { state:"North Dakota", rank:22, snack:"Peanut butter blossoms", img:"https://cocoaandsalt.com/wp-content/uploads/2024/12/Peanut-Butter-Blossom-Cookies-19.jpg" },
+  { state:"Oregon", rank:23, snack:"Hummus", img:"https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_1456,h_1092/k%2FPhoto%2FRecipes%2F2024-08-hummus%2Fhummus-165" },
+  { state:"Rhode Island", rank:24, snack:"Pigs in a blanket", img:"https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fit,w_730,h_913/k%2FPhoto%2FRecipes%2F2024-10-pigs-in-a-blanket%2Fpigs-in-a-blanket-172" },
+  { state:"West Virginia", rank:25, snack:"Pepperoni rolls", img:"https://www.lifeloveandsugar.com/wp-content/uploads/2023/03/Pepperoni-Rolls5.jpg" },
+  { state:"Wisconsin", rank:26, snack:"Beer brats", img:"https://playswellwithbutter.com/wp-content/uploads/2025/05/Grilled-Wisconsin-Beer-Brats-3.jpg" },
+  { state:"Delaware", rank:27, snack:"Crab dip", img:"https://thekitchengirl.com/wp-content/uploads/Crab-dip-recipe-a_60a.jpg" },
+  { state:"Hawaii", rank:28, snack:"Poke bowl", img:"https://somebodyfeedseb.com/wp-content/uploads/2025/06/Square-2025.05.13-Prawn-poke-bowl-0823.jpg" },
+  { state:"Idaho", rank:29, snack:"Baked potato", img:"https://smokinandgrillinwitab.com/wp-content/uploads/2023/12/iStock-1457726309-1024x683.jpg" },
+  { state:"Pennsylvania", rank:30, snack:"Philly cheesesteak", img:"https://static01.nyt.com/images/2024/02/06/multimedia/KD-philly-cheesesteak-mhqc/KD-philly-cheesesteak-mhqc-threeByTwoMediumAt2X.jpg?quality=75&auto=webp" },
+  { state:"Nebraska", rank:31, snack:"Tater tots", img:"https://www.thecookierookie.com/wp-content/uploads/2023/07/homemade-tater-tots-recipe-3-edited.jpg" },
+  { state:"Connecticut", rank:32, snack:"Grinder sliders", img:"https://www.allrecipes.com/thmb/skk1lzzsmFCl26Nm9avn6vLrMvw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/11680714-grinder-sliders-DDMFS-4x3-2abbba3d382c47e8ba9b743414a8eaee.jpg" },
+  { state:"South Carolina", rank:33, snack:"Deviled eggs", img:"https://www.simplyrecipes.com/thmb/49DJW1K_cS2fq4YN6nS5J3VdtSU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Million-Dollar-Deviled-Eggs-LEAD-1-ce9c56d08ea1452090ae7e9308afd3e7.jpg" },
+  { state:"Tennessee", rank:34, snack:"Hot chicken sliders", img:"https://cdn11.bigcommerce.com/s-5ljyj9oebs/images/stencil/1920w/products/2588/36832/P062022161638_1__43105.1727119743.jpg?c=2" },
+  { state:"Colorado", rank:35, snack:"Nachos", img:"https://hips.hearstapps.com/hmg-prod/images/nachos-supreme-lead-66154d446dde8.jpg?crop=1xw:1xh;center,top&resize=1400:*" },
+  { state:"Oklahoma", rank:36, snack:"Chili cheese dip", img:"https://hips.hearstapps.com/hmg-prod/images/chili-cheese-dip-recipe-1-6797c5a3314a0.jpg?crop=1xw:1xh;center,top&resize=1400:*" },
+  { state:"Massachusetts", rank:37, snack:"Sausage and peppers", img:"https://www.simplyrecipes.com/thmb/23Ke0Zq9itN1M2Ewaw3uxTTtQ1w=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Sausage-Onions-Peppers-Method-3-2-1cb43c845e1a462cb7263889ac5cea05.jpg" },
+  { state:"Ohio", rank:38, snack:"Buckeye candy", img:"https://freshaprilflours.com/wp-content/uploads/2015/05/buckeyes-06.jpg" },
+  { state:"Illinois", rank:39, snack:"Deep-dish pizza", img:"https://drizzleanddip.com/wp-content/uploads/2020/10/O6A1953.jpg" },
+  { state:"Missouri", rank:40, snack:"Pulled pork sliders", img:"https://www.kcmasterpiece.com/wp-content/uploads/2017/10/PulledPorkSliders_hero.jpg?width=800&quality=75" },
+  { state:"North Carolina", rank:41, snack:"Pulled pork", img:"https://hips.hearstapps.com/hmg-prod/images/slow-cooker-pulled-pork-lead-66a7df151f3a5.jpg?crop=1xw:1xh;center,top&resize=1400:*" },
+  { state:"Virginia", rank:42, snack:"Ham biscuits", img:"https://www.hormelfoods.com/wp-content/uploads/cure_81_vermont_malpe_ham_biscuits.1737992601.jpg" },
+  { state:"Indiana", rank:43, snack:"Pigs in a blanket (crescent roll)", img:"https://mojo.generalmills.com/api/public/content/9ghyHGDjb0eTjIEk9cMTmg_webp_base.webp?v=2939ccda&t=191ddcab8d1c415fa10fa00a14351227" },
+  { state:"Michigan", rank:44, snack:"Rice Krispie treats", img:"https://www.allrecipes.com/thmb/2LHDUfKtIJAaMa2Rd3aO0973Ds4=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/9959-marshmallow-treats-DDMFS-4x3-66d2f29f5f6e45c2a28db5be04fa80ac.jpg" },
+  { state:"Arkansas", rank:45, snack:"Cheese dip", img:"https://www.recipetineats.com/tachyon/2014/10/Nachos-Cheese-Dip-and-Sauce.jpg?resize=680%2C1025&zoom=1" },
+  { state:"Nevada", rank:46, snack:"Loaded nachos", img:"https://www.seriouseats.com/thmb/26qQBWqKcY4H6x5l9O0C53prbIA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/20250430-SEA-UltimateSmokedNachos-LorenaMasso-Beauty1-35-a0d81f942b394edf9137f9b2f09269a4.jpg" },
+  { state:"Washington", rank:47, snack:"Teriyaki chicken skewers", img:"https://erhardtseat.com/wp-content/uploads/2020/03/grilled-chicken-teriyaki-kabobs-recipe-blog-4.jpg" },
+  { state:"New York", rank:48, snack:"Buffalo chicken dip", img:"https://static01.nyt.com/images/2024/07/16/multimedia/buffalo-chicken-dip2-vwcl/buffalo-chicken-dip2-vwcl-threeByTwoMediumAt2X.jpg?quality=75&auto=webp" },
+  { state:"Louisiana", rank:49, snack:"Crawfish étouffée", img:"https://www.lacrawfish.com/asset/62055a826df54?w=1000&fit=max" },
+  { state:"Maryland", rank:50, snack:"Shrimp cocktail", img:"https://www.wellseasonedstudio.com/wp-content/uploads/2025/01/Oven-roasted-shrimp-cocktail-on-a-plate-with-lemon-wedges-and-cocktail-sauce-600x900.jpg" }
+];
+
+/* --------------------------- Render table --------------------------- */
+(function renderTable(){
+  const tbody = document.getElementById("rows");
+  const sorted = [...STATE_DATA].sort((a,b) => a.rank - b.rank);
+  tbody.innerHTML = sorted.map(d => `
+    <tr>
+      <td class="rank">#${d.rank}</td>
+      <td class="state">${escapeHtml(d.state)}</td>
+      <td class="snack">${escapeHtml(d.snack)}</td>
+      <td><img class="thumb" src="${d.img}" alt="${escapeHtml(d.snack)} photo"></td>
+    </tr>
+  `).join("");
+})();
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+/* --------------------------- Embed panel wiring --------------------------- */
+const embedToggle = document.getElementById("embedToggle");
+const embedPanel  = document.getElementById("embedPanel");
+const taIframe    = document.getElementById("embed-iframe");
+const taStatic    = document.getElementById("embed-static");
+
+taIframe.value =
+`<div style="max-width:960px;margin:16px auto;">
+  <iframe src="${CANONICAL_URL}" width="100%" height="920" loading="lazy"
+          style="border:1px solid #E3E0D6;border-radius:12px;background:#fff"
+          title="The Most Popular Super Bowl Snacks in Each State — RotoGrinders (Chart)"></iframe>
+  <p style="text-align:right;font-size:12px;color:#7a7467;margin-top:6px">
+    Source: RotoGrinders — Super Bowl Snack Index 2025.
+  </p>
+</div>`;
+
+taStatic.value =
+`<figure style="max-width:960px;margin:16px auto;background:#fff;border:1px solid #E3E0D6;border-radius:12px;overflow:hidden;padding:12px;">
+  <img src="YOUR-STATIC-CHART-IMAGE-URL.png"
+       alt="The Most Popular Super Bowl Snacks in Each State — RotoGrinders (Chart)"
+       style="width:100%;display:block;border-radius:8px;">
+  <figcaption style="margin-top:6px;font:12px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;color:#555;">
+    The Most Popular Super Bowl Snacks in Each State. Source: <span style="color:#111;font-weight:600;">RotoGrinders</span>.
+  </figcaption>
+</figure>`;
+
+embedToggle.addEventListener("click", () => {
+  const hidden = embedPanel.hasAttribute("hidden");
+  if (hidden) {
+    embedPanel.removeAttribute("hidden");
+    embedToggle.setAttribute("aria-expanded","true");
+    embedToggle.textContent = "Hide Embed Code";
+  } else {
+    embedPanel.setAttribute("hidden","");
+    embedToggle.setAttribute("aria-expanded","false");
+    embedToggle.textContent = "Get Embed Code";
+  }
+});
+</script>
+</body>
+</html>
