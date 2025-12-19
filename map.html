@@ -60,7 +60,6 @@
     }
     .explain strong{font-weight:800; color:#151515}
 
-    /* Logo placed under the map for clean standalone export */
     .brandbar{
       border-top:1px solid var(--bdsoft);
       background:#fffefd;
@@ -74,7 +73,7 @@
       filter:drop-shadow(0 2px 3px rgba(0,0,0,.10));
     }
 
-    /* Embed */
+    /* Embed (single) */
     .footer{
       border-top:1px solid var(--bdsoft);
       background:#fffefd;
@@ -110,6 +109,7 @@
     @media print{
       body{background:#fff; padding:0}
       .frame{box-shadow:none}
+      .footer{display:none}
     }
   </style>
 </head>
@@ -142,16 +142,11 @@
           </button>
 
           <div id="embedPanel" class="embed-panel" hidden>
-            <p class="fineprint">Copy and paste the embed you need below.</p>
+            <p class="fineprint">Copy and paste the embed code below.</p>
 
             <div class="embed-block">
               <label for="embed-iframe">Interactive (iframe)</label>
               <textarea id="embed-iframe" readonly onclick="this.select()"></textarea>
-            </div>
-
-            <div class="embed-block">
-              <label for="embed-static">Static (no JS)</label>
-              <textarea id="embed-static" readonly onclick="this.select()"></textarea>
             </div>
           </div>
         </div>
@@ -162,7 +157,8 @@
   </div>
 
 <script>
-const CANONICAL_URL = window.location.href;
+/* Fixed canonical URL for embed */
+const CANONICAL_URL = "https://aharris-jpg.github.io/super-bowl-snacks/map.html";
 
 /* --------------------------- DATA: State → snack + image + rank --------------------------- */
 /* Note: If any Hearst URL with resize=1400:* breaks in your host, change * to %2A */
@@ -196,7 +192,10 @@ const STATE_DATA = [
   { state:"Delaware", rank:27, snack:"Crab dip", img:"https://thekitchengirl.com/wp-content/uploads/Crab-dip-recipe-a_60a.jpg" },
   { state:"Hawaii", rank:28, snack:"Poke bowl", img:"https://somebodyfeedseb.com/wp-content/uploads/2025/06/Square-2025.05.13-Prawn-poke-bowl-0823.jpg" },
   { state:"Idaho", rank:29, snack:"Baked potato", img:"https://smokinandgrillinwitab.com/wp-content/uploads/2023/12/iStock-1457726309-1024x683.jpg" },
+
+  /* ✅ FIXED Pennsylvania URL */
   { state:"Pennsylvania", rank:30, snack:"Philly cheesesteak", img:"https://static01.nyt.com/images/2024/02/06/multimedia/KD-philly-cheesesteak-mhqc/KD-philly-cheesesteak-mhqc-threeByTwoMediumAt2X.jpg?quality=75&auto=webp" },
+
   { state:"Nebraska", rank:31, snack:"Tater tots", img:"https://www.thecookierookie.com/wp-content/uploads/2023/07/homemade-tater-tots-recipe-3-edited.jpg" },
   { state:"Connecticut", rank:32, snack:"Grinder sliders", img:"https://www.allrecipes.com/thmb/skk1lzzsmFCl26Nm9avn6vLrMvw=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/11680714-grinder-sliders-DDMFS-4x3-2abbba3d382c47e8ba9b743414a8eaee.jpg" },
   { state:"South Carolina", rank:33, snack:"Deviled eggs", img:"https://www.simplyrecipes.com/thmb/49DJW1K_cS2fq4YN6nS5J3VdtSU=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Million-Dollar-Deviled-Eggs-LEAD-1-ce9c56d08ea1452090ae7e9308afd3e7.jpg" },
@@ -287,7 +286,7 @@ d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(us => {
       .attr("filter","url(#imgShadow)")
       .style("pointer-events","none");
 
-    // If an image fails, fade in a neutral fallback so the state doesn't look "missing"
+    // If an image fails, hide it (you'll still see the base fill behind)
     img.on("error", function(){
       d3.select(this).attr("opacity", 0.0);
     });
@@ -303,11 +302,10 @@ d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json").then(us => {
     .attr("stroke","#000").attr("stroke-opacity",0.07).attr("stroke-width",1.7);
 });
 
-/* --------------------------- Embed panel wiring --------------------------- */
+/* --------------------------- Embed panel wiring (single textarea) --------------------------- */
 const embedToggle = document.getElementById("embedToggle");
 const embedPanel  = document.getElementById("embedPanel");
 const taIframe    = document.getElementById("embed-iframe");
-const taStatic    = document.getElementById("embed-static");
 
 taIframe.value =
 `<div style="max-width:960px;margin:16px auto;">
@@ -318,16 +316,6 @@ taIframe.value =
     Source: RotoGrinders — Super Bowl Snack Index 2025.
   </p>
 </div>`;
-
-taStatic.value =
-`<figure style="max-width:960px;margin:16px auto;background:#fff;border:1px solid #E3E0D6;border-radius:12px;overflow:hidden;padding:12px;">
-  <img src="YOUR-STATIC-MAP-IMAGE-URL.png"
-       alt="The Most Popular Super Bowl Snacks in Each State — RotoGrinders (Map)"
-       style="width:100%;display:block;border-radius:8px;">
-  <figcaption style="margin-top:6px;font:12px/1.4 system-ui,-apple-system,'Segoe UI',sans-serif;color:#555;">
-    The Most Popular Super Bowl Snacks in Each State. Source: <span style="color:#111;font-weight:600;">RotoGrinders</span>.
-  </figcaption>
-</figure>`;
 
 embedToggle.addEventListener("click", () => {
   const hidden = embedPanel.hasAttribute("hidden");
